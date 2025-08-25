@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enhanced HTML5 form with comprehensive input fields, validation, and accessible design">
+    <meta name="author" content="Titus Kariuki">
+    <title>Enhanced HTML5 Form - Registration & Survey</title>
+</head>
+<body>
+    <header role="banner">
+        <h1>Professional Development Registration</h1>
+        <p>Complete your registration and provide feedback for our upcoming conference</p>
+    </header>
+
+    <nav aria-label="Page sections">
+        <ul>
+            <li><a href="#registration">Registration Form</a></li>
+            <li><a href="#schedule">Conference Schedule</a></li>
+            <li><a href="#speakers">Featured Speakers</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <main role="main">
+        <section id="registration" aria-labelledby="registration-heading">
+            <h2 id="registration-heading">Conference Registration Form</h2>
+            
+            <form action="/submit-registration" method="post" novalidate>
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <div>
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required 
+                               placeholder="Enter your first name" 
+                               autocomplete="given-name"
+                               minlength="2" maxlength="50"
+                               aria-describedby="firstName-help">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required 
+                               placeholder="Enter your last name" 
+                               autocomplete="family-name"
+                               minlength="2" maxlength="50">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="your.email@example.com" 
+                               autocomplete="email"
+                               aria-describedby="email-help">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" 
+                               placeholder="+1 (555) 123-4567" 
+                               autocomplete="tel"
+                               pattern="[\+]?[1-9][\d\s\-\(\)]{7,15}">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="birthDate">Date of Birth</label>
+                        <input type="date" id="birthDate" name="birthDate" 
+                               min="1950-01-01" max="2010-12-31"
+                               autocomplete="bday">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="website">Personal Website/Portfolio</label>
+                        <input type="url" id="website" name="website" 
+                               placeholder="https://yourwebsite.com" 
+                               autocomplete="url">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Professional Details</legend>
+                    
+                    <div>
+                        <label for="jobTitle">Job Title *</label>
+                        <input type="text" id="jobTitle" name="jobTitle" required 
+                               placeholder="e.g., Senior Developer" 
+                               autocomplete="organization-title">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="company">Company/Organization *</label>
+                        <input type="text" id="company" name="company" required 
+                               placeholder="Company name" 
+                               autocomplete="organization">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" name="experience" 
+                               min="0" max="50" step="0.5"
+                               placeholder="5.5">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="salary">Annual Salary Range (Optional)</label>
+                        <input type="range" id="salary" name="salary" 
+                               min="30000" max="200000" step="5000" value="75000"
+                               aria-describedby="salary-display">
+                        <output id="salary-display" for="salary">$75,000</output>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="skills">Primary Skills *</label>
+                        <select id="skills" name="skills" required multiple size="4" 
+                                aria-describedby="skills-help">
+                            <option value="html">HTML/CSS</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="react">React</option>
+                            <option value="nodejs">Node.js</option>
+                            <option value="database">Database Management</option>
+                            <option value="devops">DevOps</option>
+                        </select>
+                        <small id="skills-help">Hold Ctrl/Cmd to select multiple skills</small>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Conference Preferences</legend>
+                    
+                    <div>
+                        <label for="attendanceType">Attendance Type *</label>
+                        <select id="attendanceType" name="attendanceType" required>
+                            <option value="">-- Select attendance type --</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="virtual">Virtual</option>
+                            <option value="hybrid">Hybrid (Both)</option>
+                        </select>
+                    </div>
+                    <br>
+                    <fieldset>
+                        <legend>Session Preferences (Select all that apply)</legend>
+                        <div>
+                            <input type="checkbox" id="frontend" name="sessions" value="frontend">
+                            <label for="frontend">Frontend Development</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="backend" name="sessions" value="backend">
+                            <label for="backend">Backend Development</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mobile" name="sessions" value="mobile">
+                            <label for="mobile">Mobile Development</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="ai" name="sessions" value="ai">
+                            <label for="ai">AI & Machine Learning</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="security" name="sessions" value="security">
+                            <label for="security">Cybersecurity</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Dietary Requirements</legend>
+                        <div>
+                            <input type="radio" id="none" name="dietary" value="none" checked>
+                            <label for="none">No special requirements</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="vegetarian" name="dietary" value="vegetarian">
+                            <label for="vegetarian">Vegetarian</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="vegan" name="dietary" value="vegan">
+                            <label for="vegan">Vegan</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="gluten-free" name="dietary" value="gluten-free">
+                            <label for="gluten-free">Gluten-free</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="other-dietary" name="dietary" value="other">
+                            <label for="other-dietary">Other (specify below)</label>
+                        </div>
+                    </fieldset>
+
+                    <div>
+                        <label for="dietaryNotes">Additional Dietary Notes</label>
+                        <textarea id="dietaryNotes" name="dietaryNotes" 
+                                  rows="3" cols="50" 
+                                  placeholder="Please specify any additional dietary requirements..."
+                                  maxlength="500"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    
+                    <div>
+                        <label for="emergencyContact">Emergency Contact</label>
+                        <input type="text" id="emergencyContact" name="emergencyContact" 
+                               placeholder="Name and phone number" 
+                               autocomplete="off">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="tshirtSize">T-shirt Size</label>
+                        <datalist id="sizes">
+                            <option value="XS">Extra Small</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                            <option value="XL">Extra Large</option>
+                            <option value="XXL">2X Large</option>
+                        </datalist>
+                        <input type="text" id="tshirtSize" name="tshirtSize" 
+                               list="sizes" placeholder="Select or type size">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="referralCode">Referral Code</label>
+                        <input type="text" id="referralCode" name="referralCode" 
+                               readonly value="CONF2025" 
+                               aria-describedby="referral-help">
+                        <small id="referral-help">Pre-filled promotional code</small>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="comments">Additional Comments or Questions</label>
+                        <textarea id="comments" name="comments" 
+                                  rows="5" cols="50" 
+                                  placeholder="Share any questions, accessibility needs, or special requests..."
+                                  maxlength="1000"></textarea>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                        <label for="newsletter">Subscribe to our monthly newsletter</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="checkbox" id="terms" name="terms" value="accepted" required>
+                        <label for="terms">I agree to the <a href="/terms" target="_blank">Terms and Conditions</a> *</label>
+                    </div>
+                </fieldset>
+
+                <div>
+                    <button type="submit">Register for Conference</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="schedule" aria-labelledby="schedule-heading">
+            <h2 id="schedule-heading">Conference Schedule</h2>
+            
+            <table style="background-color: lightgrey;">
+                <caption>Three-day conference schedule with sessions and speakers</caption>
+                <thead>
+                    <tr style="background-color: lightsalmon;">
+                        <th scope="col">Time</th>
+                        <th scope="col">Day 1 - Monday</th>
+                        <th scope="col">Day 2 - Tuesday</th>
+                        <th scope="col">Day 3 - Wednesday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: lightblue;">
+                        <th scope="row">1:30 PM</th>
+                        <td style="padding-left: 20px;">HTML5 & CSS3 Workshop</td>
+                        <td style="padding-left: 20px;">Node.js Best Practices</td>
+                        <td style="padding-left: 20px;">Career Development</td>
+                    </tr>
+                    <tr style="background-color: lightblue;">
+                        <th scope="row">3:00 PM</th>
+                        <td style="padding-left: 20px;">Responsive Design</td>
+                        <td style="padding-left: 20px;">Database Optimization</td>
+                        <td style="padding-left: 20px;">Networking Session</td>
+                    </tr>
+                    <tr style="background-color: lightblue;">
+                        <th scope="row">5:00 PM</th>
+                        <td style="padding-left: 20px;">Welcome Reception</td>
+                        <td style="padding-left: 20px;">Community Dinner</td>
+                        <td style="padding-left: 20px;">Closing Ceremony</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="speakers" aria-labelledby="speakers-heading">
+            <h2 id="speakers-heading">Featured Speakers</h2>
+            
+            <ul>
+                <li>
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p><strong>Topic:</strong> Web Accessibility for Everyone</p>
+                    <p>Leading expert in inclusive design with 15+ years of experience</p>
+                </li>
+                <li>
+                    <h3>Michael Chen</h3>
+                    <p><strong>Topic:</strong> Performance Optimization in Modern Apps</p>
+                    <p>Senior Engineer at TechCorp, author of "Fast Web Applications"</p>
+                </li>
+                <li>
+                    <h3>Dr. Elena Rodriguez</h3>
+                    <p><strong>Topic:</strong> The Future of AI in Web Development</p>
+                    <p>AI researcher and full-stack developer, MIT graduate</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="resources" aria-labelledby="resources-heading">
+            <h2 id="resources-heading">Conference Resources</h2>
+            
+            <h3>Pre-Conference Materials</h3>
+            <dl>
+                <dt>Setup Guide</dt>
+                <dd>Step-by-step instructions for setting up your development environment</dd>
+                
+                <dt>Reading List</dt>
+                <dd>Recommended articles and documentation to review before sessions</dd>
+                
+                <dt>Code Repository</dt>
+                <dd>Access to workshop materials and example projects</dd>
+                
+                <dt>Virtual Platform</dt>
+                <dd>Instructions for accessing online sessions and networking features</dd>
+            </dl>
+
+            <h3>Media Gallery</h3>
+            <figure>
+                <img src="/images/conference-venue.jpg" 
+                     alt="Modern conference center with large presentation screens and comfortable seating"
+                     width="600" height="400">
+                <figcaption>Conference venue: Downtown Convention Center</figcaption>
+            </figure>
+
+            <figure>
+                <video controls width="600" height="400" 
+                       aria-describedby="video-description">
+                    <source src="/videos/conference-preview.mp4" type="video/mp4">
+                    <source src="/videos/conference-preview.webm" type="video/webm">
+                    <track kind="captions" src="/captions/preview-en.vtt" srclang="en" label="English">
+                    Your browser does not support the video element.
+                </video>
+                <figcaption id="video-description">
+                    Conference preview video showcasing speakers, venue, and highlights from previous years
+                </figcaption>
+            </figure>
+
+            <figure>
+                <audio controls aria-describedby="audio-description">
+                    <source src="/audio/welcome-message.mp3" type="audio/mpeg">
+                    <source src="/audio/welcome-message.ogg" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption id="audio-description">
+                    Welcome message from conference organizers
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <aside aria-labelledby="important-notes">
+        <h2 id="important-notes">Important Notes</h2>
+        <ul>
+            <li>Registration deadline: March 15, 2025</li>
+            <li>Early bird discount available until February 28</li>
+            <li>Certificate of completion provided</li>
+            <li>All sessions will be recorded for virtual attendees</li>
+            <li>Networking app available for all participants</li>
+        </ul>
+    </aside>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 Professional Development Conference. All rights reserved.</p>
+        <p>For questions, contact us at <a href="mailto:info@conference.com">info@conference.com</a></p>
+    </footer>
+
+    <script>
+        // Update salary range display
+        const salaryRange = document.getElementById('salary');
+        const salaryDisplay = document.getElementById('salary-display');
+        
+        salaryRange.addEventListener('input', function() {
+            salaryDisplay.textContent = '$' + parseInt(this.value).toLocaleString();
+        });
+    </script>
+</body>
+</html>
